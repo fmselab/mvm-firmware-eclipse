@@ -4,7 +4,9 @@ this is a temporary repository to compile and execute the MVM in eclipse.
 
 What you  need:
 
-* pull the files. the firmware is a submodule: I had to remove some files to forse to use the mock versions. When we will have a proper build system it will be easy. Some .cpp files are exluded from build.
+* pull the files. the firmware is a submodule: I had to remove some files to force the use the mock versions. 
+When we will have a proper build system it will be easy. Some .cpp files are excluded from build. I added some includes.
+
 
 * you need eclipse with the CDT (tool for C++ development) 
 
