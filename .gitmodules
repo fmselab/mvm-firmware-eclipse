@@ -1,0 +1,3 @@
+[submodule "MVMFirmwareCpp"]
+	path = MVMFirmwareCpp
+	url = https://github.com/NuclearInstruments/MVMFirmwareCpp.git
