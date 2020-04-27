@@ -99,6 +99,7 @@ float HAL::GetPVenturi(int32_t Delay) {
 	throw std::runtime_error("3not implemented!");
 }
 void HAL::SetInputValve(float value) {
+	std::cout<< "setting the input valve to "<< value;
 	this->InputValve = value;
 	if (value > 0 && OutputValve)
 		std::runtime_error("valve both opens");
@@ -107,6 +108,7 @@ float HAL::GetInputValve() {
 	return this->InputValve;
 }
 void HAL::SetOutputValve(bool value) {
+	std::cout<< "setting the output valve to "<< value;
 	this->OutputValve = value;
 }
 float HAL::GetOutputValve() {
@@ -174,7 +176,7 @@ void HAL::SetZeroPressureSensor(t_pressure_sensor ps, float value) {
 }
 
 void HAL::CorrectZeroPressureSensor(t_pressure_sensor ps, float value) {
-	throw std::runtime_error("22 not implemented!");
+	// nothing to do throw std::runtime_error("22 not implemented!");
 }
 void HAL::ConfigureInputValvePID(float P, float I, float D, float P2, float I2,
 		float D2, float pid_limit) {
