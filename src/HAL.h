@@ -12,7 +12,8 @@
 
 class HAL {
 
-	private:
+//private:
+public:
 	float InputValve;
 	bool OutputValve;
 	bool alarmedled, alarmedrel;
@@ -34,7 +35,8 @@ public:
 	void SetOutputValve(bool value);
 	float GetOutputValve();
 	void GetInputValvePID(float *pid_slow, float *pid_fast);
-	void ConfigureInputValvePID(float P, float I, float D, float P2, float I2, float D2, float pid_limit);
+	void ConfigureInputValvePID(float P, float I, float D, float P2, float I2,
+			float D2, float pid_limit);
 	void SetBuzzer(bool value);
 	void SetAlarmLed(bool value);
 	void SetAlarmRele(bool value);
@@ -56,7 +58,7 @@ public:
 	void CalibrateOxygenSensorInPureOxygen();
 	void TriggerAlarm(t_ALARM alarm_code);
 	float GetGasTemperature();
-	void GetPowerStatus(bool* batteryPowered, float* charge);
+	void GetPowerStatus(bool *batteryPowered, float *charge);
 	void FlushPipes(bool run, float valve);
 	void DOVenturiMeterScan();
 	uint8_t i2c_scheduler;

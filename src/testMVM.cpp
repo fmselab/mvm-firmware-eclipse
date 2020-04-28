@@ -1,34 +1,31 @@
-#define BOOST_TEST_MODULE My Test
-
 #undef  HARDWARE_TARGET_PLATFORM_V3
 #undef  HARDWARE_TARGET_PLATFORM_V4
 
-#include <boost/test/included/unit_test.hpp>
 #include "MVMCore.h"
 #include <iostream>
 #include <chrono>
 #include <thread>
 #include "scaledtime.h"
+#include "catch.hpp"
 
 using namespace std;
 
 enum state {INHALE, EXHALE};
 
-BOOST_AUTO_TEST_SUITE( test_suite )
-
-BOOST_AUTO_TEST_CASE(test_set_parameters) {
+TEST_CASE( "MVM_set_parameters_test()","MVM") {
 	MVMCore mvm;
 	// set a right parameter
-	BOOST_TEST(mvm.SetParameter("rate","6"), "rate set");
-	BOOST_TEST("6", mvm.GetParameter("rate"));
-	// set wrong paramters
-	BOOST_TEST(! mvm.SetParameter("notexisting","6"),"setting not exiting parameter should return false");
-	BOOST_REQUIRE_EQUAL("6", mvm.GetParameter("rate")); // no change
-	BOOST_TEST(! mvm.SetParameter("rate","invalidvalue"),"setting not exiting parameter should return false");
-	BOOST_REQUIRE_EQUAL("6", mvm.GetParameter("rate")); // no change
+	REQUIRE(mvm.SetParameter("rate","6"));// "rate set");
+	REQUIRE(mvm.GetParameter("rate") == "6");
+	// set wrong parameters
+	REQUIRE(! mvm.SetParameter("notexisting","6"));//,"setting not exiting parameter should return false");
+	REQUIRE(mvm.GetParameter("rate")== "6"); // no change
+	REQUIRE(! mvm.SetParameter("rate","invalidvalue"));//,"setting not exiting parameter should return false");
+	REQUIRE(mvm.GetParameter("rate") == "6"); // no change
 }
 
-BOOST_AUTO_TEST_CASE(first_test) {
+
+TEST_CASE( "MVM_normal_scenario","MVM"){
 
 	MVMCore mvm;
 	cout << "init the machine" << std::endl;
@@ -62,4 +59,3 @@ BOOST_AUTO_TEST_CASE(first_test) {
 		scaledSleep(20);
 	}
 }
-BOOST_AUTO_TEST_SUITE_END()

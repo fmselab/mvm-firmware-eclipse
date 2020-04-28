@@ -12,10 +12,8 @@ When we will have a proper build system it will be easy. Some .cpp files are exc
 
 * you need a c++ compiler
 
-* boost test libraries are needed to compile and run the tests  
 
-
-works under windows with cygwin. 
+works under windows (with cygwin or  mingw) 
 
 No hardware is required, only the  software. The goal is to perform unit tests.
 
