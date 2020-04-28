@@ -18,3 +18,7 @@ When we will have a proper build system it will be easy. Some .cpp files are exc
 works under windows with cygwin. 
 
 No hardware is required, only the  software. The goal is to perform unit tests.
+
+### coverage information
+
+to collect the coverage information:

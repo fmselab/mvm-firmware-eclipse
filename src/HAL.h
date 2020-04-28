@@ -18,6 +18,9 @@ class HAL {
 	bool alarmedled, alarmedrel;
 	bool buzzer;
 
+	// for testing porpuses
+	void printstate();
+
 public:
 	DebugIfaceClass dbg;
 	void Init();
