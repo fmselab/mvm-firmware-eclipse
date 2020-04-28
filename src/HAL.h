@@ -20,7 +20,7 @@ public:
 	bool buzzer;
 
 	// for testing porpuses
-	void printstate();
+	void printstate(char*);
 
 public:
 	DebugIfaceClass dbg;
@@ -93,6 +93,9 @@ public:
 			std::function<void(t_ALARM alarm_code)> callback) {
 		callback_alarm = callback;
 	}
+
+private:
+	const char* getTimeLog();
 };
 
 #endif /* HAL_H_ */
