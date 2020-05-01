@@ -20,3 +20,5 @@ No hardware is required, only the  software. The goal is to perform unit tests.
 ### coverage information
 
 to collect the coverage information:
+
+-fprofile-arcs -ftest-coverage --coverage  
