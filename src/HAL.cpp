@@ -12,33 +12,37 @@
 #include "scaledtime.h"
 #include <string>
 #include <iomanip>
+#include "fw_board_ni_v4.h"
 
 using namespace std;
 
-/*HAL::HAL() {
- // TODO Auto-generated constructor stub
+static HW_V4 myHW;
 
- }
+struct  HAL_Status{
+	float InputValve;
+	bool OutputValve;
+	bool alarmedled, alarmedrel;
+	bool buzzer;
+	void printstate(char* s){
+		std::cout << "[" << fixed<< std::setprecision(1) << getScaledMillisecfromInit()/1000.0 << "] ";
+		cout << s << "  -- valves (in,out) (" + std::to_string(InputValve) + "," + std::to_string(OutputValve) + ")" << std::endl;
+	}
+};
 
- HAL::~HAL() {
- // TODO Auto-generated destructor stub
- }
- */
-// use only in the debug
-//class HW_mock: public HW {
-//public:
-//};
 
-//static HW_mock myHW;
+
+static HAL_Status current_state;
 
 //////////////////
 
 void HAL::Init() {
 	startScaledTime();
-	std::cout << "init hal" << std::endl;
-	//dbg.Init(DBG_ALL, &myHW);
-	dbg.DbgPrint(DBG_CODE, DBG_INFO,
-			"Calibrating pressure sensors. Idraulic circuit must be opened");
+	hwi.Init();
+	dbg.Init(DBG_ALL, &myHW);
+	dbg.Init(DBG_WARNING, &hwi);
+	_dc.hwi = &myHW;
+	_dc.dbg = &dbg;
+	std::cout << "init HAL" << std::endl;
 }
 
 void HAL::Tick() {
@@ -65,42 +69,37 @@ float HAL::GetPVenturi(int32_t Delay) {
 void HAL::SetInputValve(float value) {
 //	static long startphase = 0;
 //	// TODO this should go to the real HAL to avoid double setting the valve output
-//	if (this->InputValve == value) return;
-//	if (value >0  && this->InputValve == 0){
-//		// open -> start expiration
-//		printstate("start inspiration");
-//	} else if (value == 0  && this->InputValve > 0) {
-//		//closed --> end expiration
-//		printstate("end inspiration");
-//	}
-//	this->InputValve = value;
-//	// start new phase
-//	startphase = getScaledMillisec();
-//	if (value > 0 && OutputValve)
-//		std::runtime_error("valve both opens");
+	if (current_state.InputValve == value) return;
+	if (value >0  && current_state.InputValve == 0){
+		// open -> start expiration
+		current_state.printstate("start inspiration");
+	} else if (value == 0  && current_state.InputValve > 0) {
+		//closed --> end expiration
+		current_state.printstate("end inspiration");
+	}
+	current_state.InputValve = value;
+	// start new phase
+	//startphase = getScaledMillisec();
+	if (value > 0 && current_state.OutputValve)
+		std::runtime_error("valve both opens");
 }
-
-//void HAL::printstate(char* s){
-//	std::cout << "[" << fixed<< std::setprecision(1) << getScaledMillisecfromInit()/1000.0 << "] ";
-//	cout << s << "  -- valves (in,out) (" + std::to_string(InputValve) + "," + std::to_string(OutputValve) + ")" << std::endl;
-//}
 
 float HAL::GetInputValve() {
-//	return this->InputValve;
+	return current_state.InputValve;
 }
 void HAL::SetOutputValve(bool value) {
-//	if (value == this->OutputValve) return;
-//	if (value && !this->OutputValve){
-//		// open -> start expiration
-//		printstate("start expiration");
-//	} else if (!value && this->OutputValve){
-//		//closed --> end expiration
-//		printstate("end expiration");
-//	}
-//	this->OutputValve = value;
+	if (value == current_state.OutputValve) return;
+	if (value && !current_state.OutputValve){
+		// open -> start expiration
+		current_state.printstate("start expiration");
+	} else if (!value && current_state.OutputValve){
+		//closed --> end expiration
+		current_state.printstate("end expiration");
+	}
+	current_state.OutputValve = value;
 }
 float HAL::GetOutputValve() {
-//	return this->OutputValve;
+	return current_state.OutputValve;
 }
 void HAL::SetBuzzer(bool value) {
 //	buzzer = value;

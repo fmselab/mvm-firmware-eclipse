@@ -28,12 +28,13 @@ bool HW_V4::IOGet(hw_gpio id, bool *value) {
 void HW_V4::__delay_blocking_ms(uint32_t ms) {
 }
 void HW_V4::PrintDebugConsole(String s) {
-//	std::cout << s << std::endl;
+	std::cout << s << std::endl;
 }
 void HW_V4::PrintLineDebugConsole(String s) {
+	std::cout << s << std::endl;
 }
 void HW_V4::Tick() {
-//	throw std::runtime_error("not implemented!");
+	throw std::runtime_error("HW_V4::Tick not implemented!");
 }
 uint64_t HW_V4::GetMillis() {
 }

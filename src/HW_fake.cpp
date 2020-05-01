@@ -1,7 +1,8 @@
 /*
- * H4_fake.cpp
+ * This is needed only because HAL ha virtual non pure methods
  *
- *  Created on: 1 mag 2020
+ * DO NOT IMPLEMENT THIS, USE HW4 instead
+ *
  *      Author: AngeloGargantini
  */
 
@@ -28,9 +29,10 @@ bool HW::IOGet(hw_gpio id, bool *value) {
 void HW::__delay_blocking_ms(uint32_t ms) {
 }
 void HW::PrintDebugConsole(String s) {
-//	std::cout << s << std::endl;
+	throw std::runtime_error("HW::PrintDebugConsole not implemented!");
 }
 void HW::PrintLineDebugConsole(String s) {
+	throw std::runtime_error("HW::PrintLineDebugConsole not implemented!");
 }
 void HW::Tick() {
 //	throw std::runtime_error("not implemented!");

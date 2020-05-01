@@ -3,18 +3,20 @@
 
 #include "scaledtime.h"
 #include "Alarms.h"
-#include "catch.hpp"
+//#include "catch.hpp"
 #include <iostream>
+#include "HAL.h"
 
 using namespace std;
 
 //TEST_CASE( "Alarms" ) {
-//	AlarmClass alarm;
-//	HAL myHAL;
-//	t_SystemStatus sys_c;
-//	//alarm.Init(&myHAL, &sys_c);
-//	//alarm.TriggerAlarm(PRESSURE_DROP_INHALE);
-//	//alarm.Tick();
-//	//std::cout << myHAL.alarmedled << " " << myHAL.alarmedrel;
-//}
+int main(int argc, char **argv) {
+	AlarmClass alarm;
+	HAL myHAL;
+	t_SystemStatus sys_c;
+	myHAL.Init();
+	alarm.Init(&myHAL, &sys_c);
+	alarm.TriggerAlarm(PRESSURE_DROP_INHALE);
+	alarm.Tick();
+}
 

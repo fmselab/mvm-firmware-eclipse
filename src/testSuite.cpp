@@ -5,12 +5,12 @@
 #undef  HARDWARE_TARGET_PLATFORM_V4
 using namespace std;
 
-int main( int argc, char* argv[] ) {
+int mmmain( int argc, char* argv[] ) {
   // global setup...
 
-  //int result = Catch::Session().run();
+  int result = Catch::Session().run();
 
   // global clean-up...
 
-  //return result;
+  return result;
 }
