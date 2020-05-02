@@ -1,10 +1,10 @@
-# mvm-firmware-eclipse
+# mvm-firmware-unittests
 
-This is a temporary repository to compile and execute the MVM in eclipse together with its unit tests.
+This is a temporary repository to compile and execute the MVM together with its unit tests.
 
 For sw integration tests see: https://github.com/fmselab/mvm-firmware 
 
-It contains the unit tests written for the classes of MVM above HAL, using catch2.  
+It contains the unit tests written for the classes of MVM above HAL, using catch2.  It is an eclipse project.
  
 What you  need:
 
