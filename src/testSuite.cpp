@@ -5,6 +5,7 @@
 #undef  HARDWARE_TARGET_PLATFORM_V4
 using namespace std;
 
+// main method that runs the desired test cases
 int mmmain( int argc, char* argv[] ) {
   // global setup...
 

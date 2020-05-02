@@ -1,3 +1,10 @@
+/**
+ *
+ * @brief unit tests for the Alarm class
+ *
+ * @author Angelo Gargantini
+ */
+
 #undef  HARDWARE_TARGET_PLATFORM_V3
 #undef  HARDWARE_TARGET_PLATFORM_V4
 
@@ -9,6 +16,7 @@
 
 using namespace std;
 
+// an alarm is raised
 //TEST_CASE( "Alarms" ) {
 int main(int argc, char **argv) {
 	AlarmClass alarm;

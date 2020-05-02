@@ -1,3 +1,9 @@
+/**
+ *
+ * @brief unit tests for the MVMCore class
+ *
+ * @author Angelo Gargantini
+ */
 #undef  HARDWARE_TARGET_PLATFORM_V3
 #undef  HARDWARE_TARGET_PLATFORM_V4
 

@@ -1,7 +1,9 @@
 # mvm-firmware-eclipse
 
-this is a temporary repository to compile and execute the MVM in eclipse. 
+this is a temporary repository to compile and execute the MVM in eclipse.
 
+It contains the unit tests written for the classes of MVM above HAL, using catch2.  
+ 
 What you  need:
 
 * pull the files. the firmware is a submodule: I had to remove some files to force the use the mock versions. 
