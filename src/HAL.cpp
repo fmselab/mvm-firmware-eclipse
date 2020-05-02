@@ -1,5 +1,5 @@
 /*
- * HAL.cpp
+ * HAL.cpp - a fake HAL
  *
  *  Created on: 26 apr 2020
  *      Author: AngeloGargantini

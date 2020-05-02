@@ -17,21 +17,18 @@
 using namespace std;
 
 enum state {INHALE, EXHALE};
-
-TEST_CASE( "MVM_set_parameters_test()","MVM") {
+// a free form test name and, optionally, one or more tags
+TEST_CASE( "run without the parameters set","[MVM]") {
 	MVMCore mvm;
-	// set a right parameter
-	REQUIRE(mvm.SetParameter("rate","6"));// "rate set");
-	REQUIRE(mvm.GetParameter("rate") == "6");
-	// set wrong parameters
-	REQUIRE(! mvm.SetParameter("notexisting","6"));//,"setting not exiting parameter should return false");
-	REQUIRE(mvm.GetParameter("rate")== "6"); // no change
-	REQUIRE(! mvm.SetParameter("rate","invalidvalue"));//,"setting not exiting parameter should return false");
-	REQUIRE(mvm.GetParameter("rate") == "6"); // no change
+	mvm.Init();
+	// run without setting the parameters
+	mvm.SetParameter("run", "1");
+	REQUIRE(mvm.SetParameter("run","0"));// "rate set");
 }
 
 
-TEST_CASE( "MVM_normal_scenario","MVM"){
+
+TEST_CASE( "MVM_normal_scenario","[MVM]"){
 
 	MVMCore mvm;
 	cout << "init the machine" << std::endl;

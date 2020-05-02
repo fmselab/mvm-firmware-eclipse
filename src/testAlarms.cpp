@@ -10,15 +10,14 @@
 
 #include "scaledtime.h"
 #include "Alarms.h"
-//#include "catch.hpp"
+#include "catch.hpp"
 #include <iostream>
 #include "HAL.h"
 
 using namespace std;
 
 // an alarm is raised
-//TEST_CASE( "Alarms" ) {
-int main(int argc, char **argv) {
+TEST_CASE("Raise PRESSURE_DROP_INHALE Alarm", "[Alarms]") {
 	AlarmClass alarm;
 	HAL myHAL;
 	t_SystemStatus sys_c;
@@ -26,5 +25,6 @@ int main(int argc, char **argv) {
 	alarm.Init(&myHAL, &sys_c);
 	alarm.TriggerAlarm(PRESSURE_DROP_INHALE);
 	alarm.Tick();
+	// TODO add the check
 }
 

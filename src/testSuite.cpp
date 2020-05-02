@@ -6,10 +6,12 @@
 using namespace std;
 
 // main method that runs the desired test cases
-int mmmain( int argc, char* argv[] ) {
+int main( int argc, char* argv[] ) {
   // global setup...
-
-  int result = Catch::Session().run();
+	char *argvxcatch[] = {"CMC"};
+	int argcxcatch = (int) ((sizeof(argvxcatch) / sizeof(argvxcatch[0]))) - 1;
+	//int result = Catch::Session().run(argcxcatch, argvxcatch); // its does not work
+	int result = Catch::Session().run();
 
   // global clean-up...
 
