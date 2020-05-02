@@ -1,9 +1,6 @@
 [submodule "MVMFirmwareCpp"]
 	path = MVMFirmwareCpp
 	url = https://github.com/NuclearInstruments/MVMFirmwareCpp.git
-[submodule "Catch2"]
-	path = Catch2
-	url = https://github.com/catchorg/Catch2.git
 [submodule "libs/trompeloeil"]
 	path = libs/trompeloeil
 	url = https://github.com/rollbear/trompeloeil.git
