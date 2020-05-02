@@ -1,6 +1,7 @@
 [submodule "MVMFirmwareCpp"]
 	path = MVMFirmwareCpp
 	url = https://github.com/NuclearInstruments/MVMFirmwareCpp.git
+
 [submodule "tests/libs/trompeloeil"]
 	path = tests/libs/trompeloeil
 	url = https://github.com/rollbear/trompeloeil.git
