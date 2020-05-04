@@ -1,3 +1,13 @@
 [submodule "MVMFirmwareCpp"]
 	path = MVMFirmwareCpp
 	url = https://github.com/NuclearInstruments/MVMFirmwareCpp.git
+
+[submodule "tests/libs/trompeloeil"]
+	path = tests/libs/trompeloeil
+	url = https://github.com/rollbear/trompeloeil.git
+[submodule "tests/libs/Catch2"]
+	path = tests/libs/Catch2
+	url = https://github.com/catchorg/Catch2.git
+[submodule "tests/fw/MVMFirmwareCpp"]
+	path = tests/fw/MVMFirmwareCpp
+	url = https://github.com/NuclearInstruments/MVMFirmwareCpp.git
