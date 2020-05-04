@@ -30,7 +30,7 @@ struct  HAL_Status{
 };
 
 
-
+// static to protect
 static HAL_Status current_state;
 
 //////////////////
@@ -71,32 +71,35 @@ void HAL::SetInputValve(float value) {
 //	// TODO this should go to the real HAL to avoid double setting the valve output
 	if (current_state.InputValve == value) return;
 	if (value >0  && current_state.InputValve == 0){
+		current_state.InputValve = value;
 		// open -> start expiration
 		current_state.printstate("start inspiration");
 	} else if (value == 0  && current_state.InputValve > 0) {
+		current_state.InputValve = value;
 		//closed --> end expiration
 		current_state.printstate("end inspiration");
 	}
-	current_state.InputValve = value;
 	// start new phase
 	//startphase = getScaledMillisec();
-	if (value > 0 && current_state.OutputValve)
-		std::runtime_error("valve both opens");
+	//if (value > 0 && current_state.OutputValve)
+	//	std::runtime_error("valve both opens");
 }
 
 float HAL::GetInputValve() {
 	return current_state.InputValve;
 }
+// true open
 void HAL::SetOutputValve(bool value) {
 	if (value == current_state.OutputValve) return;
 	if (value && !current_state.OutputValve){
+		current_state.OutputValve = value;
 		// open -> start expiration
 		current_state.printstate("start expiration");
 	} else if (!value && current_state.OutputValve){
+		current_state.OutputValve = value;
 		//closed --> end expiration
 		current_state.printstate("end expiration");
 	}
-	current_state.OutputValve = value;
 }
 float HAL::GetOutputValve() {
 	return current_state.OutputValve;
