@@ -1,4 +1,9 @@
 /Debug/
 build
+tests/report
+!.gitkeep
+
+# Hide Eclipse User settings
 .settings
+# Hide VSCode User settings
 .vscode
