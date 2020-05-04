@@ -8,3 +8,6 @@
 [submodule "tests/libs/Catch2"]
 	path = tests/libs/Catch2
 	url = https://github.com/catchorg/Catch2.git
+[submodule "tests/fw/MVMFirmwareCpp"]
+	path = tests/fw/MVMFirmwareCpp
+	url = https://github.com/NuclearInstruments/MVMFirmwareCpp.git
