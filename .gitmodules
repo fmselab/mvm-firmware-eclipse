@@ -11,3 +11,6 @@
 [submodule "tests/fw/MVMFirmwareCpp"]
 	path = tests/fw/MVMFirmwareCpp
 	url = https://github.com/NuclearInstruments/MVMFirmwareCpp.git
+[submodule "tests/libs/cppcheck"]
+	path = tests/libs/cppcheck
+	url = https://github.com/danmar/cppcheck.git

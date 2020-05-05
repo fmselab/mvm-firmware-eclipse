@@ -2,6 +2,8 @@
 #include <catch.hpp>
 #include <catch2/trompeloeil.hpp>
 
+#include "arduino.h"
+
 /*
 trompeloeil::set_reporter([](trompeloeil::severity s, const char* file,
                              unsigned long line, std::string const& msg) {
@@ -19,6 +21,12 @@ trompeloeil::set_reporter([](trompeloeil::severity s, const char* file,
   }
 });
 */
+ArduinoMock arduino_mock;
+
+extern "C" {
+int64_t millis() { return arduino_mock.millis(); }
+void delay(uint32_t ms) { return arduino_mock.delay(ms); }
+}
 
 int main(int argc, char* argv[]) {
   // global setup...
